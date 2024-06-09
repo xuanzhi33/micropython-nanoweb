@@ -165,6 +165,7 @@ class Nanoweb:
                             break
                     else:
                         # 3. Try to load index file
+                        await write(request, "HTTP/1.1 200 OK\r\n\r\n")
                         if request.url in ('', '/'):
                             await send_file(request, self.INDEX_FILE)
                         else:
